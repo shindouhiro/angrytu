@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo-sm.png" media="screen" />
+<title>怒兔，大学生才艺电商平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="alternate icon" type="image/png" href="/i/favicon.png">
+<link href="docs/css/bootstrap.min.css" rel="stylesheet">
+<link href="docs/css/highlight.css" rel="stylesheet">
+<link href="docs/css/bootstrap-switch.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="style/css/common.css" />
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="docs/js/bootstrap.min.js"></script>
+<script src="docs/js/highlight.js"></script>
+<script src="docs/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".nt-btn-long div").click(function(){
+              $(".nt-btn-long div").removeClass("active");
+                $(this).addClass("active");
+        });
+    });
+</script></head>
+<body>
+    <!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，网站暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+<header class="am-topbar am-topbar-fixed-top nt-topbar">
+    <div class="am-container">
+        <h1 class="am-topbar-brand nt-topbar-brand">
+            <a href="#">
+                <img class="nt-logo" alt="怒兔" src="style/images/logo.png" />
+            </a>
+        </h1>
+        <div class="am-topbar-left nt-selectcity">
+            广州站
+            <a href="#">[切换城市]</a>
+        </div>
+        <div class="am-topbar-right nt-rightnav">
+
+              <a href="index.php" >首　页</a>|
+            <a href="cases.php" active>找事儿</a>|
+            <a href="master.php" >找高人</a>|
+      
+  <a href="login.php">登录</a>|<a href="reg_phone.php">注册</a>            <div class="am-dropdown">
+                <ul class="am-dropdown-content">
+                  <li><a href="mine.php">我的主页</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#modal_chg_psw">修改密码</a></li>
+                  <li><a href="#">消息记录</a></li>
+                          <li class="am-divider"></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="logout.php">注销</a></li>
+                <!--
+                    <li class="am-dropdown-header">标题</li>
+                    <li><a href="#">快乐的方式不只一种</a></li>
+                    <li class="am-active"><a href="#">最荣幸是</a></li>
+                    <li><a href="#">谁都是造物者的光荣</a></li>
+                    <li class="am-disabled"><a href="#">就站在光明的角落</a></li>
+                    <li class="am-divider"></li>
+                    <li><a href="#">天空海阔 要做最坚强的泡沫</a></li>
+                    -->
+                </ul>
+            </div>
+        </div>
+        <script>
+            $(".am-dropdown").css("position", "absolute");
+            $(".am-dropdown").css("left", $(".nt-mine").offset().left+"px");
+            $(".am-dropdown").css("top", $(".nt-mine").offset().top+30+"px");
+            $(".nt-mine").click(function(e){
+            if($(".am-dropdown ul").css("display")=="none"){
+                $(".am-dropdown ul").show();
+               $("body").one("click",function(){
+                    $(".am-dropdown ul").hide();
+                })
+            }
+            e.stopPropagation();
+            });
+        </script>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- Modal -->
+<div id="modal_chg_psw" class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="width:350px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" style="min-width: 90px;text-align: right;">原密码:</label>
+                <input type="password" class="input-xlarge disabled" id="pop_psw_old" value="">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" style="min-width: 90px;text-align: right;">新密码:</label>
+                <input type="password" class="input-xlarge disabled" id="pop_psw_new" value="">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label" style="min-width: 90px;text-align: right;">新密码确认:</label>
+                <input type="password"  class="input-xlarge" id="pop_psw_confirm" value="">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button id="pop_psw_save" type="button" class="btn btn-primary" onclick="func_chg_psw()">修改密码</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  
+
+
+  //修改密码
+  function func_chg_psw()
+  {    
+    //檢測是不是已經有cookie了，如果有了就檢測存的cookie對不對，對的話直接跳轉
+    var strCookie=document.cookie; 
+    //将多cookie切割为多个名/值对 
+    var arrCookie=strCookie.split("; "); 
+    var c_userid; 
+    if(arrCookie.length > 1 )//如果存cookie
+    {
+      //遍历cookie数组，处理每个cookie对
+      for(var i=0;i<arrCookie.length;i++)
+      { 
+        var arr=arrCookie[i].split("=");
+        //找到名称为userId的cookie，并返回它的值 
+        if("user_id" == arr[0])
+          c_userid = decodeURI(arr[1]);
+      } 
+    }
+
+  
+    var psw_old = $("#pop_psw_old").val();  
+    var psw_new = $("#pop_psw_new").val();  
+    var psw_conf = $("#pop_psw_confirm").val();
+    if(psw_new != psw_conf)//兩次新密碼不正確
+    {
+      alert("两次输入的密码不一致");
+    }
+    else//兩次新密碼正確
+    {     
+      var postData = {
+        "user_id": c_userid,
+        "psw_old": $.md5(psw_old),
+        "psw_new": $.md5(psw_new)
+      };
+      $.ajax({
+        url: 'json/j_chg_psw.php',
+        type: 'POST',
+        data: postData,
+        dataType: 'json',
+        timeout: 10000,
+        success: function(res)
+        {
+          //alert(l.success);
+          if(res.res_code == "100")//修改成功
+          {
+            alert("修改成功,请重新登录");
+            window.location.href='login.php';//跳转回登陆界面重新登录
+          }
+          else//修改失败
+            alert("修改失败");
+        }
+      });
+    }
+  };
+
+</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="nt-sliderdiv nt-sliderdiv-yellow" style="height:350px;">
+      
+            <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+                <ul class="am-slides">
+                    <li><img src="style/images/banner-case-1.jpg" style="height:350px;" /></li>
+                </ul>
+            </div>
+      
+    </div>
+    <!--
+    <div class="nt-sliderdiv">
+        <div class="am-g am-container">
+            <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+                <ul class="am-slides">
+                    <li><img src="/style/images/banner-case-1.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <div class=" am-g am-container nt-findstar">
+        <div class="am-u-sm-12 am-text-center">
+            <div class="am-text-center nt-btn-long">
+                <div class="active" style="cursor: pointer;" onclick="location.href='cases.php'">
+                    找作品
+                </div>
+                <div style="cursor: pointer;" onclick="location.href='master.php'">
+                    找高人
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" am-g am-container nt-btnlist">
+        <div class="am-u-sm-12 am-text-left">
+            <button type="button" class="nt-btn nt-btn-primary">全部</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100000&p=1'">舞蹈</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100001&p=1'">语言节目</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100002&p=1'">美术</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100003&p=1'">音乐</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100004&p=1'">手工制作</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100005&p=1'">教学</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100006&p=1'">传统文化</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100007&p=1'">摄影</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100008&p=1'">礼仪</button><button type="button" class="nt-btn " onclick="location.href='cases.php?sk=100009&p=1'">其它</button>        </div>
+    </div>
+    <div class="am-g am-container">
+        <ul class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-bordered nt-glnosd" data-am-gallery="{ pureview: true }">
+
+
+            <li>    <div class="am-gallery-item">        <a href="work.php?wkid=93"  target="blank" class="">            <img src="image/workpic/100036_thumb_1458194145_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">更新提醒 why so series [1P]</h3>        <div class="am-gallery-desc">11天前发布</div>        <div class="am-gallery-desc">15人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=92"  target="blank" class="">            <img src="image/workpic/100037_thumb_1458193935_1.png" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">游戏插画，原画 [2P]</h3>        <div class="am-gallery-desc">11天前发布</div>        <div class="am-gallery-desc">5人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=91"  target="blank" class="">            <img src="image/workpic/100038_thumb_1458193562_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">报菜名 [1P]</h3>        <div class="am-gallery-desc">11天前发布</div>        <div class="am-gallery-desc">8人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=90"  target="blank" class="">            <img src="image/workpic/100039_thumb_1458192972_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">桥牌入门教学 [2P]</h3>        <div class="am-gallery-desc">11天前发布</div>        <div class="am-gallery-desc">2人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=89"  target="blank" class="">            <img src="image/workpic/100040_thumb_1458192264_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">whisper-写给成年人的童话 [2P]</h3>        <div class="am-gallery-desc">12天前发布</div>        <div class="am-gallery-desc">2人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=88"  target="blank" class="">            <img src="image/workpic/5_thumb_1457986248_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">微电影剧本、话剧剧本写作及指导 [1P]</h3>        <div class="am-gallery-desc">14天前发布</div>        <div class="am-gallery-desc">21人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=86"  target="blank" class="">            <img src="image/workpic/100041_thumb_1457784047_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">民族舞教学 [1P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">15人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=85"  target="blank" class="">            <img src="image/workpic/100042_thumb_1457783788_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">校园水果摊 [2P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">12人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=84"  target="blank" class="">            <img src="image/workpic/100043_thumb_1457783519_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">陪看电影 [1P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">15人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=83"  target="blank" class="">            <img src="image/workpic/100044_thumb_1457783263_1.png" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">唱吧王牌主播，睡前为你唱首歌 [1P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">15人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=82"  target="blank" class="">            <img src="image/workpic/100045_thumb_1457782875_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">棒球陪练、教学 [2P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">11人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=81"  target="blank" class="">            <img src="image/workpic/100046_thumb_1457782419_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">情诗代写 [2P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">5人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=80"  target="blank" class="">            <img src="image/workpic/100047_thumb_1457782205_1.png" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">音乐素材包 [2P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">5人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=79"  target="blank" class="">            <img src="image/workpic/100048_thumb_1457781912_1.png" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">微电影《偷食》 [1P]</h3>        <div class="am-gallery-desc">16天前发布</div>        <div class="am-gallery-desc">6人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=78"  target="blank" class="">            <img src="image/workpic/100049_thumb_1457542190_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">辟邪灵符驱煞挡灾 [1P]</h3>        <div class="am-gallery-desc">19天前发布</div>        <div class="am-gallery-desc">60人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li><li>    <div class="am-gallery-item">        <a href="work.php?wkid=77"  target="blank" class="">            <img src="image/workpic/100050_thumb_1457541575_1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />        </a>        <h3 class="am-gallery-title">聚会摄影 [4P]</h3>        <div class="am-gallery-desc">19天前发布</div>        <div class="am-gallery-desc">53人气&nbsp;&nbsp;/&nbsp;&nbsp;0评论&nbsp;&nbsp;/&nbsp;&nbsp;0推荐</div>    </div></li>
+            <!--
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            <li>
+                <div class="am-gallery-item">
+                    <a href="#" class="">
+                        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                    </a>
+                    <h3 class="am-gallery-title">旅行记-海岛 [3P]</h3>
+                    <div class="am-gallery-desc">插画-绘画习作</div>
+                    <div class="am-gallery-desc">2天前发布</div>
+                    <div class="am-gallery-desc">388人气&nbsp;&nbsp;/&nbsp;&nbsp;1评论&nbsp;&nbsp;/&nbsp;&nbsp;16推荐</div>
+                </div>
+            </li>
+            -->
+        </ul>
+    </div>
+    <div class="am-g am-container">
+        <ul data-am-widget="pagination"
+            class="am-pagination am-pagination-default  am-text-right">
+            
+    <li class="am-pagination-prev "><a href="cases.php?sk=all&p=1" class="">&lt;</a></li><li class="am-active"><a href="cases.php?sk=all&p=1" class="am-active">1</a></li><li class=""><a href="cases.php?sk=all&p=2" class="">2</a></li><li class=""><a href="cases.php?sk=all&p=3" class="">3</a></li>……<li class=""><a href="cases.php?sk=all&p=5" class="">5</a></li><li class="am-pagination-next "><a href="cases.php?sk=all&p=2" class="">&gt;</a></li>    <!--
+            <li class="am-pagination-prev ">
+                <a href="#" class="">&lt;</a>
+            </li>
+            <li class="">
+                <a href="#" class="">1</a>
+            </li>
+            <li class="am-active">
+                <a href="#" class="am-active">2</a>
+            </li>
+            <li class="">
+                <a href="#" class="">3</a>
+            </li>
+            <li class="">
+                <a href="#" class="">4</a>
+            </li>
+            <li class="">
+                ...
+            </li>
+            <li class="">
+                <a href="#" class="">5</a>
+            </li>
+            <li class="am-pagination-next ">
+                <a href="#" class="">&gt;</a>
+            </li>
+            -->
+
+        </ul>
+    </div>
+
+    
+<footer class="footer">
+    <div class="am-g am-container">
+        <div class="am-u-sm-1 nt-footer-left" >
+            <a href="#">
+                <img class="nt-logo" alt="怒兔" src="style/images/logo.png" />
+            </a>
+        </div>
+        <div class="am-u-sm-6 nt-aboutus">
+            <div class="am-text-center nt-footcube"><a href="#">关于我们</a></div>
+            <div class="am-text-center nt-footcube"><a href="#">诚邀伙伴</a></div>
+            <div class="am-text-center nt-footcube"><a href="#">服务协议</a></div>
+            <div class="am-text-center nt-footcube"><a href="#">联系方式</a></div>
+            <div class="am-u-sm-12 am-text-left nt-copyright">
+                copyright © 2015怒兔信息科技有限公司 -粤ICP备12017804号-1
+            </div>
+
+        </div>
+        <div class="am-u-sm-5 nt-vlogo">
+            <img src="style/images/v-logo-1.png" />
+            <img src="style/images/v-logo-2.png" />
+            <img src="style/images/v-logo-3.png" />
+        </div>
+    </div>
+</footer>    <!-- #include file = "footer.shtml" -->
+</body>
+</html>
